@@ -1,27 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="16dp"
     tools:context=".PromedioActivity">
+
     <EditText
         android:id="@+id/edtNombreEstudiante"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre del estudiante"/>
-    <!-- EditTexts para ingresar las notas -->
+        android:hint="Nombre del estudiante"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/edtNota1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nota 1"
+        android:layout_below="@id/edtNombreEstudiante"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/edtNota2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nota 2"
+        android:layout_below="@id/edtNota1"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/edtNota3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nota 3"
+        android:layout_below="@id/edtNota2"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/edtNota4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nota 4"
+        android:layout_below="@id/edtNota3"
+        android:layout_marginBottom="8dp"/>
+
+    <EditText
+        android:id="@+id/edtNota5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nota 5"
+        android:layout_below="@id/edtNota4"
+        android:layout_marginBottom="16dp"/>
+
     <Button
         android:id="@+id/btnCalcularPromedio"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calcular promedio"/>
+        android:text="Calcular Promedio"
+        android:layout_below="@id/edtNota5"
+        android:layout_marginBottom="16dp"/>
+
     <TextView
         android:id="@+id/txtResultado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:paddingTop="16dp"/>
-</LinearLayout>
+        android:layout_below="@id/btnCalcularPromedio"/>
+
+</RelativeLayout>
