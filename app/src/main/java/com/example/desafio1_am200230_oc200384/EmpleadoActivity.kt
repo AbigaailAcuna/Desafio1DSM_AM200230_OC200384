@@ -1,16 +1,11 @@
 package com.example.desafio1_am200230_oc200384
 
-import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import java.util.*
+import android.os.Bundle
 
-
-class PromedioActivity : AppCompatActivity() {
+class EmpleadoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_promedio)
-
-
-        }
+        setContentView(R.layout.activity_empleado)
     }
-
+}
