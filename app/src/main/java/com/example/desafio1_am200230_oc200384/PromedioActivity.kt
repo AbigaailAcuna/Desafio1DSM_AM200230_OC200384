@@ -40,7 +40,7 @@ class PromedioActivity : AppCompatActivity() {
             notas.add(edtNota5.text.toString().toDouble())
 
             val promedio = calcularPromedio(notas)
-            val resultado = if (promedio >= 60) "aprobado" else "reprobado"
+            val resultado = if (promedio >= 6.0) "aprobado" else "reprobado"
 
             txtResultado.text = "El promedio del estudiante $nombreEstudiante es: $promedio. Está $resultado."
         }

@@ -18,6 +18,12 @@ class CalculadoraActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_calculadora)
 
+        edtNum1 = findViewById(R.id.edtNum1)
+        edtNum2 = findViewById(R.id.edtNum2)
+        edtOperador = findViewById(R.id.edtOperador)
+        btnCalcular = findViewById(R.id.btnCalcular)
+        txtResultado = findViewById(R.id.txtResultado)
+
         btnCalcular.setOnClickListener {
             val num1 = edtNum1.text.toString().toDouble()
             val num2 = edtNum2.text.toString().toDouble()
@@ -27,6 +33,7 @@ class CalculadoraActivity : AppCompatActivity() {
             txtResultado.text = "Resultado: $resultado"
         }
     }
+
 
     private fun calcularResultado(num1: Double, num2: Double, operador: String): Double {
         return when (operador) {
