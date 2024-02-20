@@ -5,19 +5,17 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import java.util.*
 
-
-private lateinit var edtNombreEstudiante: EditText
-private lateinit var edtNota1: EditText
-private lateinit var edtNota2: EditText
-private lateinit var edtNota3: EditText
-private lateinit var edtNota4: EditText
-private lateinit var edtNota5: EditText
-private lateinit var btnCalcularPromedio: Button
-private lateinit var txtResultado: TextView
 class PromedioActivity : AppCompatActivity() {
 
+    private lateinit var edtNombreEstudiante: EditText
+    private lateinit var edtNota1: EditText
+    private lateinit var edtNota2: EditText
+    private lateinit var edtNota3: EditText
+    private lateinit var edtNota4: EditText
+    private lateinit var edtNota5: EditText
+    private lateinit var btnCalcularPromedio: Button
+    private lateinit var txtResultado: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +39,18 @@ class PromedioActivity : AppCompatActivity() {
             notas.add(edtNota4.text.toString().toDouble())
             notas.add(edtNota5.text.toString().toDouble())
 
+            val promedio = calcularPromedio(notas)
+            val resultado = if (promedio >= 60) "aprobado" else "reprobado"
+
+            txtResultado.text = "El promedio del estudiante $nombreEstudiante es: $promedio. Está $resultado."
         }
     }
-}
 
+    private fun calcularPromedio(notas: List<Double>): Double {
+        // Suma de todas las notas
+        val sumaNotas = notas.sum()
+
+        // Calcula el promedio
+        return sumaNotas / notas.size
+    }
+}
