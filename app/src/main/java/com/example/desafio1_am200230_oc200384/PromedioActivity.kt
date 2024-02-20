@@ -41,11 +41,7 @@ class PromedioActivity : AppCompatActivity() {
             notas.add(edtNota4.text.toString().toDouble())
             notas.add(edtNota5.text.toString().toDouble())
 
-            val promedio = notas.average()
-
-            val resultado = if (promedio >= 60) "aprobado" else "reprobado"
-
-            txtResultado.text = "El promedio del estudiante $nombreEstudiante es: $promedio. Está $resultado."
         }
     }
 }
+
