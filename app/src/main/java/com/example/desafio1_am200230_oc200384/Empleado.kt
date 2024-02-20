@@ -14,9 +14,9 @@ class CalculadoraSalario(val nombre: EditText, val salarioBase: EditText) {
     )
 
 
-    public val porcentajeISSS = 0.03
-    public val porcentajeAFP = 0.04
-    public val porcentajeRenta = 0.05
+    private val porcentajeISSS = 0.03
+    private val porcentajeAFP = 0.04
+    private val porcentajeRenta = 0.05
 
     // Método para calcular Salario neto
     fun calcularSalarioNeto(): ResultadosCalculo {

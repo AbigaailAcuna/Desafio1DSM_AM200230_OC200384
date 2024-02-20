@@ -61,7 +61,8 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:paddingTop="16dp" />
+        android:paddingTop="16dp"
+        android:gravity="center_horizontal"/>
 
     <TextView
         android:id="@+id/TxtTituloISSS"
@@ -76,7 +77,8 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:paddingTop="16dp" />
+        android:paddingTop="16dp"
+        android:gravity="center_horizontal"/>
 
     <TextView
         android:id="@+id/TxtTituloAFP"
@@ -91,7 +93,8 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:paddingTop="16dp" />
+        android:paddingTop="16dp"
+        android:gravity="center_horizontal"/>
     <TextView
         android:id="@+id/TxtTituloRenta"
         android:layout_width="wrap_content"
@@ -105,6 +108,7 @@
         android:layout_height="wrap_content"
         android:textSize="18sp"
         android:textStyle="bold"
-        android:paddingTop="16dp" />
+        android:paddingTop="16dp"
+        android:gravity="center_horizontal"/>
 
 </LinearLayout>

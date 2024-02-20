@@ -34,10 +34,10 @@ class EmpleadoActivity : AppCompatActivity() {
         Calculo.setOnClickListener {
             val calculadoraSalario = CalculadoraSalario(NombreEmpleado, SalarioBase)
             val salarioNeto = calculadoraSalario.calcularSalarioNeto()
-            SalarioBaseRespuesta.text = salarioNeto.salarioNeto.toString()
-            ISSS.text = salarioNeto.isss.toString()
-            AFP.text = salarioNeto.afp.toString()
-            Renta.text = salarioNeto.renta.toString()
+            SalarioBaseRespuesta.text = "$ " + salarioNeto.salarioNeto.toString()
+            ISSS.text = "$ " + salarioNeto.isss.toString()
+            AFP.text = "$ "+ salarioNeto.afp.toString()
+            Renta.text = "$ "+ salarioNeto.renta.toString()
         }
 
 
