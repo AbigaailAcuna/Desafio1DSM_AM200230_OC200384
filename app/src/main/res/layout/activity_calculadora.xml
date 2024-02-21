@@ -6,6 +6,17 @@
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".CalculadoraActivity">
+
+    <TextView
+        android:id="@+id/LblTituloEjercicio3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/LblTituloEjer3"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:paddingBottom="25dp"/>
+
     <EditText
         android:id="@+id/edtNum1"
         android:layout_width="match_parent"
@@ -21,19 +32,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Operador (+, -, *, /)"/>
-    <Button
-        android:id="@+id/btnCalcular"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Calcular"/>
-
 
 
     <TextView
         android:id="@+id/txtResultado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingTop="16dp"
         android:textSize="18sp"
-        android:textStyle="bold"
-        android:paddingTop="16dp"/>
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btnCalcular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Calcular" />
 </LinearLayout>

@@ -9,10 +9,10 @@
 
 
     <TextView
-        android:id="@+id/TxtTituloEjer2"
+        android:id="@+id/LblTituloEjercicio2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/TxtTituloEjer2"
+        android:text="@string/LblTituloEjer2"
         android:textSize="24sp"
         android:textStyle="bold"
         android:layout_gravity="center_horizontal"

@@ -4,7 +4,9 @@
     <string name="btnEmpleado">Ejercicio 2 -Cálculo de salario neto</string>
     <string name="btnCalculadora">Ejercicio 3 - Calculadora</string>
     <string name="btnCalcularSalario">Calcular Salario base del empleado</string>
-    <string name="TxtTituloEjer2">Ejercicio 2</string>
+    <string name="LblTituloEjer1">Ejercicio 1</string>
+    <string name="LblTituloEjer2">Ejercicio 2</string>
+    <string name="LblTituloEjer3">Ejercicio 3</string>
     <string name="TxtResumenSalario">Detalle de Salario</string>
     <string name="TxtTituloSalarioBase">Salario Base: </string>
     <string name="TxtTituloISSS">Descuento ISSS: </string>

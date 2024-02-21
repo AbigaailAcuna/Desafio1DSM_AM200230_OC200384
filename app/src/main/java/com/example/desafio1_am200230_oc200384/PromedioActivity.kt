@@ -6,16 +6,17 @@ import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-class PromedioActivity : AppCompatActivity() {
+ lateinit var edtNombreEstudiante: EditText
+ lateinit var edtNota1: EditText
+ lateinit var edtNota2: EditText
+ lateinit var edtNota3: EditText
+ lateinit var edtNota4: EditText
+ lateinit var edtNota5: EditText
+ lateinit var btnCalcularPromedio: Button
+ lateinit var txtResultado: TextView
 
-    private lateinit var edtNombreEstudiante: EditText
-    private lateinit var edtNota1: EditText
-    private lateinit var edtNota2: EditText
-    private lateinit var edtNota3: EditText
-    private lateinit var edtNota4: EditText
-    private lateinit var edtNota5: EditText
-    private lateinit var btnCalcularPromedio: Button
-    private lateinit var txtResultado: TextView
+
+class PromedioActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,29 +29,35 @@ class PromedioActivity : AppCompatActivity() {
         edtNota4 = findViewById(R.id.edtNota4)
         edtNota5 = findViewById(R.id.edtNota5)
         btnCalcularPromedio = findViewById(R.id.btnCalcularPromedio)
-        txtResultado = findViewById(R.id.txtResultado)
+        txtResultado = findViewById(R.id.lblResultado)
 
         btnCalcularPromedio.setOnClickListener {
             val nombreEstudiante = edtNombreEstudiante.text.toString()
             val notas = mutableListOf<Double>()
-            notas.add(edtNota1.text.toString().toDouble())
-            notas.add(edtNota2.text.toString().toDouble())
-            notas.add(edtNota3.text.toString().toDouble())
-            notas.add(edtNota4.text.toString().toDouble())
-            notas.add(edtNota5.text.toString().toDouble())
 
-            val promedio = calcularPromedio(notas)
-            val resultado = if (promedio >= 6.0) "aprobado" else "reprobado"
+            // Validar que todas las notas sean números válidos y mayores a cero
+            var todasLasNotasValidas = true
+            for (edtNota in listOf(edtNota1, edtNota2, edtNota3, edtNota4, edtNota5)) {
+                val nota = edtNota.text.toString().toDoubleOrNull()
+                if (nota == null || nota <= 0) {
+                    todasLasNotasValidas = false
+                    break
+                }
+                notas.add(nota)
+            }
 
-            txtResultado.text = "El promedio del estudiante $nombreEstudiante es: $promedio. Está $resultado."
+            if (!todasLasNotasValidas) {
+                txtResultado.text = "Por favor, ingrese notas válidas mayores que cero en todos los campos."
+                return@setOnClickListener
+            }
+
+            val estudiante = CalcularPromedio(edtNombreEstudiante, listOf(edtNota1, edtNota2, edtNota3, edtNota4, edtNota5))
+
+            val resultados = estudiante.calcularPromedio()
+            val resultado = if (resultados.aprobado) "aprobado" else "reprobado"
+
+            txtResultado.text = "El promedio del estudiante $nombreEstudiante es: ${resultados.promedio}. Está $resultado."
         }
-    }
 
-    private fun calcularPromedio(notas: List<Double>): Double {
-        // Suma de todas las notas
-        val sumaNotas = notas.sum()
-
-        // Calcula el promedio
-        return sumaNotas / notas.size
     }
 }
