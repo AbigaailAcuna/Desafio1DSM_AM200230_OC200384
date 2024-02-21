@@ -30,14 +30,22 @@ class EmpleadoActivity : AppCompatActivity() {
         Renta = findViewById(R.id.txtRenta)
 
 
-
         Calculo.setOnClickListener {
-            val calculadoraSalario = CalculadoraSalario(NombreEmpleado, SalarioBase)
-            val salarioNeto = calculadoraSalario.calcularSalarioNeto()
-            SalarioBaseRespuesta.text = "$ " + salarioNeto.salarioNeto.toString()
-            ISSS.text = "$ " + salarioNeto.isss.toString()
-            AFP.text = "$ "+ salarioNeto.afp.toString()
-            Renta.text = "$ "+ salarioNeto.renta.toString()
+            //validaciones
+            val nombre = NombreEmpleado.text.toString()
+            val salario = SalarioBase.text.toString()
+
+            if (nombre.isNotEmpty() && salario.isNotEmpty()){
+                val calculadoraSalario = CalculadoraSalario(NombreEmpleado, SalarioBase)
+                val salarioNeto = calculadoraSalario.calcularSalarioNeto()
+                SalarioBaseRespuesta.text = "$ " + salarioNeto.salarioNeto.toString()
+                ISSS.text = "$ " + salarioNeto.isss.toString()
+                AFP.text = "$ "+ salarioNeto.afp.toString()
+                Renta.text = "$ "+ salarioNeto.renta.toString()
+            }else{
+                Toast.makeText(this, "Por favor, introduzca los campos requeridos", Toast.LENGTH_SHORT).show()
+            }
+
         }
 
 

@@ -6,7 +6,7 @@
     <string name="btnCalcularSalario">Calcular Salario base del empleado</string>
     <string name="TxtTituloEjer2">Ejercicio 2</string>
     <string name="TxtResumenSalario">Detalle de Salario</string>
-    <string name="TxtTituloSalarioBase">Salario Base: </string>
+    <string name="TxtTituloSalarioBase">Salario Neto: </string>
     <string name="TxtTituloISSS">Descuento ISSS: </string>
     <string name="TxtTituloAFP">Descuento AFP: </string>
     <string name="TxtTituloRenta">Descuento Renta: </string>
