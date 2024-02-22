@@ -2,6 +2,7 @@ package com.example.desafio1_am200230_oc200384
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -14,6 +15,7 @@ lateinit var SalarioBaseRespuesta : TextView
 lateinit var ISSS : TextView
 lateinit var AFP : TextView
 lateinit var Renta : TextView
+lateinit var nombreempleado: TextView
 
 class EmpleadoActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,6 +30,7 @@ class EmpleadoActivity : AppCompatActivity() {
         ISSS = findViewById(R.id.txtISSS)
         AFP = findViewById(R.id.txtAFP)
         Renta = findViewById(R.id.txtRenta)
+        nombreempleado = findViewById(R.id.txtEmpleado)
 
 
         Calculo.setOnClickListener {
@@ -36,16 +39,23 @@ class EmpleadoActivity : AppCompatActivity() {
             val salario = SalarioBase.text.toString()
 
             if (nombre.isNotEmpty() && salario.isNotEmpty()){
-                val calculadoraSalario = CalculadoraSalario(NombreEmpleado, SalarioBase)
+                val calculadoraSalario = CalculadoraSalario(nombre, salario)
                 val salarioNeto = calculadoraSalario.calcularSalarioNeto()
-                SalarioBaseRespuesta.text = "$ " + salarioNeto.salarioNeto.toString()
-                ISSS.text = "$ " + salarioNeto.isss.toString()
-                AFP.text = "$ "+ salarioNeto.afp.toString()
-                Renta.text = "$ "+ salarioNeto.renta.toString()
+                SalarioBaseRespuesta.text = String.format("$ %.2f", salarioNeto.salarioNeto)
+                nombreempleado.text = nombre
+                ISSS.text = String.format("$ %.2f", salarioNeto.isss)
+                AFP.text = String.format("$ %.2f", salarioNeto.afp)
+                Renta.text = String.format("$ %.2f", salarioNeto.renta)
+                // Log.d("NombreEmpleado", "Nombre: $nombre")
+               // Log.d("NombreEmpleado2", "Nombre: " +calculadoraSalario.nombre.toString())
             }else{
                 Toast.makeText(this, "Por favor, introduzca los campos requeridos", Toast.LENGTH_SHORT).show()
+                ISSS.text = ""
+                AFP.text = ""
+                Renta.text = ""
+                SalarioBaseRespuesta.text = ""
+                nombreempleado.text = ""
             }
-
         }
 
 

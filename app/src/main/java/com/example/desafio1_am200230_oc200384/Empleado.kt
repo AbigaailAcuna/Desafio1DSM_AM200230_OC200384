@@ -3,7 +3,7 @@ package com.example.desafio1_am200230_oc200384
 import android.widget.EditText
 import android.widget.Button
 
-class CalculadoraSalario(val nombre: EditText, val salarioBase: EditText) {
+class CalculadoraSalario(val nombre: String, val salarioBase: String) {
 
     data class ResultadosCalculo(
         val salarioNeto: Double,
@@ -20,7 +20,7 @@ class CalculadoraSalario(val nombre: EditText, val salarioBase: EditText) {
 
     // Método para calcular Salario neto
     fun calcularSalarioNeto(): ResultadosCalculo {
-        val salarioBaseDouble = salarioBase.text.toString().toDouble()
+        val salarioBaseDouble = salarioBase.toDouble()
 
         val isss = salarioBaseDouble * porcentajeISSS
         val afp = salarioBaseDouble * porcentajeAFP

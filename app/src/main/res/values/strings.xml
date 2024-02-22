@@ -12,4 +12,5 @@
     <string name="TxtTituloISSS">Descuento ISSS: </string>
     <string name="TxtTituloAFP">Descuento AFP: </string>
     <string name="TxtTituloRenta">Descuento Renta: </string>
+    <string name="TxtNombreEmpleado">Empleado: </string>
 </resources>
