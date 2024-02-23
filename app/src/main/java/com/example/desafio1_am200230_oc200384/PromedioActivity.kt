@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
  lateinit var edtNombreEstudiante: EditText
@@ -33,6 +34,11 @@ class PromedioActivity : AppCompatActivity() {
 
         btnCalcularPromedio.setOnClickListener {
             val nombreEstudiante = edtNombreEstudiante.text.toString()
+            val nota1= edtNota1.text.toString()
+            val nota2= edtNota2.text.toString()
+            val nota3= edtNota3.text.toString()
+            val nota4= edtNota4.text.toString()
+            val nota5= edtNota5.text.toString()
             val notas = mutableListOf<Double>()
 
             // Validar que todas las notas sean números válidos y mayores a cero
@@ -46,8 +52,13 @@ class PromedioActivity : AppCompatActivity() {
                 notas.add(nota)
             }
 
+            if (nombreEstudiante.isEmpty() || nota1.isEmpty() || nota2.isEmpty() || nota3.isEmpty() || nota4.isEmpty() || nota5.isEmpty()) {
+                Toast.makeText(this, "Por favor llene todos los campos", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
             if (!todasLasNotasValidas) {
-                txtResultado.text = "Por favor, ingrese notas válidas mayores que cero en todos los campos."
+                Toast.makeText(this, "Por favor, ingrese todas las notas y que sean mayores a cero", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 

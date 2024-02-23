@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
  lateinit var edtNum1: EditText
@@ -31,16 +32,14 @@ class CalculadoraActivity : AppCompatActivity() {
         btnCalcular.setOnClickListener {
             val num1 = edtNum1.text.toString().toDoubleOrNull()
             val num2 = edtNum2.text.toString().toDoubleOrNull()
+            val operador = edtOperador.text.toString()
+
 
             if (num1 == null || num2 == null) {
-                txtResultado.text = "Por favor, ingrese números válidos."
+                Toast.makeText(this, "Por favor, introduzca NUMEROS a operar", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            if (num1 <= 0 || num2 <= 0) {
-                txtResultado.text = "Por favor, ingrese números mayores que cero."
-                return@setOnClickListener
-            }
 
             val resultado = calculadora.calcularResultado()
             txtResultado.text = "Resultado: $resultado"
