@@ -45,7 +45,7 @@ class PromedioActivity : AppCompatActivity() {
             var todasLasNotasValidas = true
             for (edtNota in listOf(edtNota1, edtNota2, edtNota3, edtNota4, edtNota5)) {
                 val nota = edtNota.text.toString().toDoubleOrNull()
-                if (nota == null || nota <= 0) {
+                if (nota == null || nota < 0) {
                     todasLasNotasValidas = false
                     break
                 }
