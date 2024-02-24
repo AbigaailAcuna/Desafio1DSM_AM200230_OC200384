@@ -8,6 +8,7 @@ import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
 
+
 lateinit var NombreEmpleado : EditText
 lateinit var SalarioBase : EditText
 lateinit var Calculo : Button
@@ -39,15 +40,21 @@ class EmpleadoActivity : AppCompatActivity() {
             val salario = SalarioBase.text.toString()
 
             if (nombre.isNotEmpty() && salario.isNotEmpty()){
-                val calculadoraSalario = CalculadoraSalario(nombre, salario)
-                val salarioNeto = calculadoraSalario.calcularSalarioNeto()
-                SalarioBaseRespuesta.text = String.format("$ %.2f", salarioNeto.salarioNeto)
-                nombreempleado.text = nombre
-                ISSS.text = String.format("$ %.2f", salarioNeto.isss)
-                AFP.text = String.format("$ %.2f", salarioNeto.afp)
-                Renta.text = String.format("$ %.2f", salarioNeto.renta)
-                // Log.d("NombreEmpleado", "Nombre: $nombre")
-               // Log.d("NombreEmpleado2", "Nombre: " +calculadoraSalario.nombre.toString())
+                if(salario > "0.0")
+                {
+                    val calculadoraSalario = CalculadoraSalario(nombre, salario)
+                    val salarioNeto = calculadoraSalario.calcularSalarioNeto()
+                    SalarioBaseRespuesta.text = String.format("$ %.2f", salarioNeto.salarioNeto)
+                    nombreempleado.text = nombre
+                    ISSS.text = String.format("$ %.2f", salarioNeto.isss)
+                    AFP.text = String.format("$ %.2f", salarioNeto.afp)
+                    Renta.text = String.format("$ %.2f", salarioNeto.renta)
+                    // Log.d("NombreEmpleado", "Nombre: $nombre")
+                    // Log.d("NombreEmpleado2", "Nombre: " +calculadoraSalario.nombre.toString())
+                }else{
+                    Toast.makeText(this, "Por favor, introduzca un salario válido", Toast.LENGTH_SHORT).show()
+                }
+
             }else{
                 Toast.makeText(this, "Por favor, introduzca los campos requeridos", Toast.LENGTH_SHORT).show()
                 ISSS.text = ""
